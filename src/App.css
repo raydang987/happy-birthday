@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Coiny&family=Titan+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Sriracha&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Great+Vibes&display=swap');
 
 * {
     padding: 0;
@@ -9,13 +10,13 @@
 }
 
 :root {
-    --color-pink: #feecea;
+    --color-pink: #e0f2fe;
     --color-white: #fff;
-    --color-black: #333;
-    --color-text-pink: #FF7882;
-    --color-heart: #FF7882;
-    --color-bg-letter: #fff8e4;
-    --color-border: #DACCBF;
+    --color-black: #1e293b;
+    --color-text-pink: #60a5fa; /* Đổi thành xanh dương sáng */
+    --color-heart: #3b82f6; /* Trái tim xanh dương đậm */
+    --color-bg-letter: #f0f9ff;
+    --color-border: #bfdbfe;
 }
 
 body {

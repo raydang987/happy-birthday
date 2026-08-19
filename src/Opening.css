@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic);
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Great+Vibes&display=swap');
 
 #CakeWrapper {
     width: 400px;
@@ -391,35 +392,31 @@
 
 
 /* --- Cake Text Container (The overall wrapper) --- */
-.cakeText {
-    position: fixed;
-    top: 66%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* Centered and clean */
-    opacity: 0;
-    /* Starts hidden */
-    visibility: hidden;
-    text-align: center;
-    font-family: 'Dancing Script', cursive;
-    z-index: 10002;
-
-    /* Animation: Custom cubic-bezier reveal after 6.8s */
-    animation: textAppear 1.2s cubic-bezier(0.23, 1, 0.32, 1) 6.8s forwards;
-}
-
-/* --- Cake Text Title (Happy 18th Birthday!) --- */
 .cakeText .cakeText-title {
-    font-size: 45px;
-    /* Large and prominent */
+    font-family: 'Playfair Display', serif; /* Font có chân sang trọng */
+    font-style: italic;
+    font-size: 48px;
     line-height: 1;
-    color: #8B0000;
-    /* Deeper Hello Kitty pink */
-    font-weight: 700;
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
-    /* Soft pink glow */
+    color: #1e3a8a; /* Xanh dương đậm hoàng gia */
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(191, 219, 254, 0.6); /* Glow xanh nhạt */
 }
 
+.cakeText .cakeText-name {
+    font-family: 'Great Vibes', cursive; /* Font chữ ký uốn lượn thanh lịch */
+    font-size: 4em;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #2563eb; /* Xanh dương sáng hơn một chút để nổi bật */
+    text-transform: capitalize;
+    letter-spacing: 3px;
+    opacity: 0;
+    transform: translateY(-20px);
+    /* Tên sẽ xuất hiện trễ hơn tiêu đề một chút (7.8s) và rơi xuống cực kỳ chậm (2s) */
+    animation: nameDropElegant 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 7.8s forwards;
+    text-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
+}
 /* --- Cake Text Name (Ahona) --- */
 .cakeText .cakeText-name {
     font-family: 'Inter', sans-serif;
@@ -448,6 +445,23 @@
     z-index: 10;
     opacity: 0;
     animation: bowWiggle 1s ease-in-out infinite alternate 7.4s forwards;
+}
+
+@keyframes nameDropElegant {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+        filter: blur(4px); /* Hơi mờ ảo lúc mới xuất hiện */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+.cakeText .cakeText-kitty-bow {
+    display: none; 
 }
 
 /* --- Keyframes --- */
@@ -579,7 +593,6 @@
         right: 70px;
         width: 60px;
         height: 50px;
-        background-image: url('/src/assets/ribbonImg.png');
         background-size: contain;
         background-repeat: no-repeat;
     }

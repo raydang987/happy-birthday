@@ -1,7 +1,11 @@
+/* ==========================================================================
+   BOX MAIL CANVAS (BLUE ELEGANT THEME)
+   ========================================================================== */
+
 .boxMail {
     position: fixed;
-    background: rgb(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(15, 23, 42, 0.85); /* Nền xanh đen mờ sang trọng */
+    backdrop-filter: blur(12px);
     width: 100%;
     height: 100%;
     top: 0;
@@ -14,19 +18,25 @@
 
 .boxMail .crossAll {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 20px;
     font-size: 30px;
-    padding: 10px 25px;
+    padding: 10px;
     cursor: pointer;
-    color: white;
+    color: #cbd5e1;
     z-index: 999;
+    transition: color 0.3s;
 }
 
+.boxMail .crossAll:hover {
+    color: #fff;
+}
+
+/* Kích thước chuẩn trên máy tính */
 .boxMail .boxMail-container {
     position: absolute;
-    width: 750px;
-    height: 500px;
+    width: 660px;
+    height: 440px;
     display: flex;
     margin: 0;
     transform: scale(0.9);
@@ -34,13 +44,15 @@
     perspective: 2000px;
 }
 
+/* Hiệu ứng di chuột nổi bóng xanh trên máy tính */
 .boxMail .boxMail-container:hover {
-    transform: rotate(-5deg);
-    filter: drop-shadow(0 0 10px #FF7882);
+    transform: scale(0.9) rotate(-3deg);
+    filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.4)); 
 }
 
+/* Lật bìa 180 độ nằm úp hẳn sang trái */
 .boxMail .boxMail-container:hover .card1 {
-    transform: translate(-187px, -250px) rotateY(-140deg);
+    transform: translate(-50%, -50%) rotateY(-180deg);
 }
 
 .boxMail .boxMail-container .card1,
@@ -51,55 +63,39 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid black;
+    border-radius: 12px; /* Bo góc mềm mại cho cả 2 mặt */
 }
 
-/* --- Card 1 Container Styles --- */
-
-/* --- Card 1 Container Styles (Hello Kitty Theme) --- */
+/* ================== BÌA NGOÀI (CARD 1) ================== */
 
 .boxMail .boxMail-container .card1 {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    /* Softened gradient: Light Pink to Alice Blue */
-    background: linear-gradient(135deg, #FFC0CB 0%, #F0F8FF 100%);
-    color: #333;
-    /* Darker text for contrast on light background */
+    z-index: 2;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* Nền Gradient xanh dương đậm rất sang */
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     overflow: hidden;
-    border-right: 2px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
-    /* Lighter shadow */
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
 }
-
-.boxMail-container .card1 {
-    z-index: 1;
-    transform-style: preserve-3d;
-    transform-origin: left;
-    /* Maintained transition for a high-quality flip */
-    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* --- Profile Image (UserImg) - Border changed to a soft pink --- */
 
 .boxMail .boxMail-container .card1 .userImg {
     position: relative;
-    width: 100px;
-    /* Slightly larger */
-    height: 100px;
+    width: 90px;
+    height: 90px;
     background-color: white;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid #FFC0CB;
-    /* Hello Kitty Pink border */
-    cursor: pointer;
-    margin-bottom: 20px;
-    box-shadow: 0 0 15px rgba(255, 192, 203, 0.8);
-    /* Pink outer glow */
+    border: 3px solid #bfdbfe;
+    margin-bottom: 15px;
+    box-shadow: 0 0 25px rgba(96, 165, 250, 0.4);
     animation: floatImage 4s ease-in-out infinite;
     z-index: 3;
 }
@@ -111,404 +107,223 @@
     height: 100%;
 }
 
-/* --- Text Styling (h4, h3, new subtitle) - Colors adjusted --- */
-
 .boxMail .boxMail-container .card1 .cover-text-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
-    transform: rotate(-2deg);
-    /* Less rotation */
     z-index: 3;
-    color: #333;
-    /* Dark text */
 }
 
 .boxMail .boxMail-container .card1 .username {
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    letter-spacing: 1.5px;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+    color: #e2e8f0;
 }
 
 .boxMail .boxMail-container .card1 .cover-title {
-    font-family: 'Dancing Script', cursive;
-    font-size: 60px;
-    /* Bigger and more festive */
-    text-transform: capitalize;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 42px;
     width: 100%;
     text-align: center;
-    line-height: 1.1;
-    letter-spacing: 4px;
+    line-height: 1.2;
+    letter-spacing: 1px;
     margin: 0;
-    /* Hello Kitty style text glow: Hot Pink with White highlight */
-    color: #FF69B4;
-    text-shadow: 0 0 8px rgba(255, 105, 180, 0.8),
-        0 0 15px rgba(255, 255, 255, 0.7);
-    animation: pulseGlowHelloKitty 3s infinite alternate;
-    /* Using NEW keyframe name */
+    color: #bfdbfe;
+    text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+    animation: pulseGlowBlue 3s infinite alternate;
 }
 
 .boxMail .boxMail-container .card1 .cover-subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    margin-top: 12px;
-    opacity: 0.9;
-    color: #555;
+    font-size: 15px;
+    margin-top: 15px;
+    opacity: 0.8;
+    color: #cbd5e1;
 }
 
-/* --- New Decoration Sparkle Background (Adjusted Opacity and Angle) --- */
-
-.boxMail .boxMail-container .card1 .card1-decoration-sparkle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.2;
-    /* More subtle */
-    z-index: 0;
-    background: repeating-linear-gradient(45deg,
-            /* Changed angle */
-            rgba(255, 255, 255, 0.15),
-            rgba(255, 255, 255, 0.15) 8px,
-            transparent 8px,
-            transparent 16px);
-    animation: shimmer 15s linear infinite;
-}
-
-/* --- SVG Decoration Styles (Colors adjusted) --- */
-
+/* Trang trí bìa (Ngôi sao & Vòng tròn xanh) */
 .boxMail .boxMail-container .card1 .deco-shape {
     position: absolute;
     width: 60px;
     height: 60px;
     z-index: 1;
-    opacity: 0.8;
+    opacity: 0.6;
     transition: all 0.5s;
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
 }
 
 .boxMail .boxMail-container .card1 .deco-shape.top-right-star {
-    top: 20px;
-    right: 20px;
-    animation: slowSpin 15s linear infinite;
+    top: 25px;
+    right: 25px;
+    animation: slowSpin 20s linear infinite;
 }
 
 .boxMail .boxMail-container .card1 .deco-shape.top-right-star polygon {
-    fill: rgba(255, 255, 255, 0.7);
-    /* Whiter star */
+    fill: rgba(147, 197, 253, 0.4);
 }
 
 .boxMail .boxMail-container .card1 .deco-shape.bottom-left-ring {
     bottom: 30px;
     left: 20px;
-    animation: rotateOscillate 10s ease-in-out infinite alternate;
+    animation: rotateOscillate 12s ease-in-out infinite alternate;
 }
 
 .boxMail .boxMail-container .card1 .deco-shape.bottom-left-ring circle:first-child {
-    stroke: rgba(255, 255, 255, 0.8);
-    /* Whiter ring outline */
+    stroke: rgba(147, 197, 253, 0.5);
 }
 
 .boxMail .boxMail-container .card1 .deco-shape.bottom-left-ring circle:last-child {
-    fill: rgba(255, 192, 203, 0.3);
-    /* Light pink inner circle */
+    fill: rgba(59, 130, 246, 0.2);
 }
 
-/* Hover effect: make the decorations slightly fade when the book is open/hovered */
 .boxMail .boxMail-container:hover .card1 .deco-shape {
-    opacity: 0.5;
+    opacity: 0.2;
 }
 
-/* --- Keyframes (Updated for Hello Kitty) --- */
+/* ================== NỘI DUNG THƯ (CARD 2) ================== */
 
-/* 1. Subtle Floating Image (No Change) */
-@keyframes floatImage {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
-
-/* 2. Text Glow Pulse (NEW HELLO KITTY GLOW) */
-@keyframes pulseGlowHelloKitty {
-    0% {
-        text-shadow: 0 0 5px #FF69B4, 0 0 10px #FF69B4, 0 0 15px #FFC0CB;
-    }
-
-    100% {
-        text-shadow: 0 0 10px #FF69B4, 0 0 20px #FF69B4, 0 0 30px #FFC0CB;
-    }
-}
-
-/* 3. Background Shimmer (No Change) */
-@keyframes shimmer {
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 100% 100%;
-    }
-}
-
-/* 4. Slow Spin (for the Star) (No Change) */
-@keyframes slowSpin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* 5. Rotate Oscillate (for the Ring) (No Change) */
-@keyframes rotateOscillate {
-    0% {
-        transform: rotate(-5deg);
-    }
-
-    50% {
-        transform: rotate(5deg);
-    }
-
-    100% {
-        transform: rotate(-5deg);
-    }
-}
-
-/* Adding the new Keyframes needed for Hello Kitty images/patterns if you use them */
-@keyframes bounceKitty {
-
-    0%,
-    100% {
-        transform: translateY(0) scale(1);
-    }
-
-    50% {
-        transform: translateY(-10px) scale(1.02);
-    }
-}
-
-@keyframes patternShift {
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position: 100px 100px;
-    }
-}
-
-/* --- Card 2: The Outer Page Wrapper (Clean background/page texture) --- */
 .boxMail .boxMail-container .card2 {
-    position: relative;
-    width: 50%;
-    height: 100%;
-    /* Switched to a soft off-white for a premium paper look */
-    background-color: #f7f7f7;
+    z-index: 1;
+    background-color: #f1f5f9;
     transform-style: preserve-3d;
     transform-origin: left;
-    transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
-    /* Smoother transition */
-    box-shadow: inset 5px 0 15px rgba(0, 0, 0, 0.08);
-    /* Subtle shadow near the spine */
+    box-shadow: inset 5px 0 15px rgba(0, 0, 0, 0.05);
 }
 
-/* --- The Inner Pink Box (The lifted note/content) --- */
 .boxMail .boxMail-container .card2 .card2-content {
     width: 100%;
     height: 100%;
     position: relative;
-    background-color: #FF7882;
-    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-    /* High-quality ease-out */
+    background-color: #1e293b;
+    transition: all 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
     overflow: hidden;
     font-family: "Inter", sans-serif;
-    color: #fff;
-    border-radius: 10px;
-    /* Rounded corners for the "floating" element */
-    padding: 25px;
-    /* Generous internal padding */
+    color: #f8fafc;
+    border-radius: 12px;
+    /* Lề trái 45px để chữ không cấn gáy thiệp */
+    padding: 25px 20px 25px 45px; 
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
 }
 
-/* Hover effect on the inner Pink Box to float it */
 .boxMail .boxMail-container:hover .card2-content {
-    /* Slightly less movement but higher shadow lift */
-    transform: translate(12px, 12px);
-    /* Deep, soft shadow for a clear floating effect */
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4),
-        -2px -2px 8px rgba(255, 255, 255, 0.1);
+    transform: translate(15px, 15px);
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5),
+                -2px -2px 10px rgba(255, 255, 255, 0.05);
 }
 
-/* --- H3: The small heading (e.g., "To You!") --- */
 .boxMail .boxMail-container .card2 h3 {
-    font-family: 'Dancing Script', cursive;
-    /* Cleaned up the confusing padding: centered and top/bottom space */
-    padding: 0 0 10px 0;
+    font-family: 'Great Vibes', cursive;
+    padding: 0 0 15px 0;
     text-align: center;
-    font-size: 34px;
-    /* Big, friendly heading */
-    margin-bottom: 15px;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    /* Added a dotted line for separation */
-    border-bottom: 3px dashed rgba(255, 255, 255, 0.5);
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: #bfdbfe;
+    border-bottom: 1px solid rgba(147, 197, 253, 0.3);
 }
 
-/* --- H2: The main message content --- */
 .boxMail .boxMail-container .card2 .card2-message-text {
     font-family: "Sriracha", "cursive";
-    padding: 10px 0;
-    font-size: 20px;
-    line-height: 1.6;
+    padding: 5px 0;
+    font-size: 15px; /* Size chuẩn desktop */
+    line-height: 1.7;
     flex-grow: 1;
     overflow-y: auto;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    color: #e2e8f0;
 }
 
 .boxMail .boxMail-container .card2 .signature {
     font-family: 'Dancing Script', cursive;
     font-size: 26px;
     font-weight: bold;
-    color: #fff;
+    color: #93c5fd;
     margin-top: 15px;
     text-align: right;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* New: Scrollbar for the message (for when it overflows) */
 .boxMail .boxMail-container .card2 .card2-message-text::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
 }
-
 .boxMail .boxMail-container .card2 .card2-message-text::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 3px;
-}
-
-/* New: Decoration Element (optional subtle texture) */
-.boxMail .boxMail-container .card2 .card2-content .card2-decoration {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.1) 1%, transparent 5%),
-        radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.1) 1%, transparent 5%);
-    pointer-events: none;
-    opacity: 0.8;
-}
-
-/* --- New Decoration Styles --- */
-
-/* Corner Ribbon Effect */
-.boxMail .boxMail-container .card2 .card2-content .corner-ribbon {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border: 20px solid transparent;
-    z-index: 10;
-    pointer-events: none;
-    opacity: 0.8;
+    background-color: rgba(147, 197, 253, 0.3);
+    border-radius: 2px;
 }
 
 .boxMail .boxMail-container .card2 .card2-content .corner-ribbon.top-left {
     top: 0;
     left: 0;
-    border-top-color: rgba(255, 255, 255, 0.7);
-    border-left-color: rgba(255, 255, 255, 0.7);
-    border-bottom-color: transparent;
-    border-right-color: transparent;
+    border-top-color: rgba(255, 255, 255, 0.4);
+    border-left-color: rgba(255, 255, 255, 0.4);
 }
-
 .boxMail .boxMail-container .card2 .card2-content .corner-ribbon.bottom-right {
     bottom: 0;
     right: 0;
-    /* Creates a pink triangle ribbon in the opposite corner */
-    border-bottom-color: rgba(10, 10, 10, 0.2);
-    border-right-color: rgba(10, 10, 10, 0.2);
-    border-top-color: transparent;
-    border-left-color: transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.3);
+    border-right-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Subtle Confetti Dots Background Layer */
-.boxMail .boxMail-container .card2 .card2-content .confetti-dots {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.2;
-    background:
-        radial-gradient(circle at 10% 20%, #fff 2px, transparent 0),
-        radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.8) 2px, transparent 0),
-        radial-gradient(circle at 50% 90%, #FF7882 1px, transparent 0),
-        radial-gradient(circle at 30% 60%, #fff 1px, transparent 0),
-        radial-gradient(circle at 70% 10%, #FF7882 2px, transparent 0);
-    background-size: 50px 50px;
-    transform: rotate(1deg);
+/* ================== KEYFRAMES & ANIMATIONS ================== */
+
+@keyframes floatImage {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
 }
 
+@keyframes pulseGlowBlue {
+    0% { text-shadow: 0 0 5px #60a5fa, 0 0 10px #60a5fa; }
+    100% { text-shadow: 0 0 10px #3b82f6, 0 0 20px #93c5fd; }
+}
 
+@keyframes slowSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
 
+@keyframes rotateOscillate {
+    0% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+}
 
-
-@media screen and (max-width: 658px) {
+/* ================== MOBILE RESPONSIVE ================== */
+@media screen and (max-width: 768px) {
+    /* Ép khung thư nhỏ lại 55% để lọt thỏm vào màn hình đt */
     .boxMail .boxMail-container {
-        position: absolute;
-        width: 650px;
-        height: 500px;
-        display: flex;
-        margin: 0;
-        transform: scale(0.9);
-        -webkit-perspective: 2000px;
-        perspective: 2000px;
+        width: 660px;
+        height: 440px;
+        transform: scale(0.55);
     }
-
+    
+    /* Khi người dùng chạm mở trên đt, giữ nguyên kích thước nhỏ này */
     .boxMail .boxMail-container:hover {
-        transform: rotate(-5deg);
-        filter: drop-shadow(0 0 10px #FF7882);
+        transform: scale(0.55) rotate(0deg);
     }
 
-    .boxMail .boxMail-container:hover .card1 {
-        transform: translate(-160px, -250px) rotateY(-140deg);
+    /* Bù lại việc thiệp bị scale nhỏ, phải phóng to chữ lên */
+    .boxMail .boxMail-container .card1 .cover-title {
+        font-size: 60px;
     }
-
-    .boxMail .boxMail-container .card2 h3 {
-        font-family: 'Dancing Script', cursive;
+    .boxMail .boxMail-container .card1 .username {
         font-size: 28px;
-        margin-bottom: 15px;
     }
-
+    .boxMail .boxMail-container .card1 .cover-subtitle {
+        font-size: 18px;
+    }
+    
+    .boxMail .boxMail-container .card2 h3 {
+        font-size: 45px;
+    }
     .boxMail .boxMail-container .card2 .card2-message-text {
-        font-family: "Sriracha", "cursive";
-        padding: 10px 0;
-        font-size: 16px;
+        font-size: 22px; 
         line-height: 1.6;
-        flex-grow: 1;
-        overflow-y: auto;
-        text-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     }
-
     .boxMail .boxMail-container .card2 .signature {
-        font-size: 20px;
+        font-size: 32px;
     }
-
 }

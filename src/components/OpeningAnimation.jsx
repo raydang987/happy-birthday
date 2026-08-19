@@ -47,8 +47,7 @@ const OpeningAnimation = ({ animateOut }) => {
   }, []);
 
   return (
-    <main className={`bg-[#ee9ca7] w-full h-screen overflow-hidden absolute top-0 left-0 loader-wrapper ${animateOut ? 'slide-up-fade-out' : ''}`}>
-      {/* --- SVG Decoration Container --- */}
+<main className={`bg-[#bae6fd] w-full h-screen overflow-hidden absolute top-0 left-0 loader-wrapper ${animateOut ? 'slide-up-fade-out' : ''}`}>      {/* --- SVG Decoration Container --- */}
       <svg className="full-screen-deco" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
         {/* Large, slow-moving circle (soft cloud/bubble) - existing */}
         <circle cx="20" cy="80" r="15" fill="rgba(255, 255, 255, 0.4)" className="deco-shape big-circle" />
@@ -115,8 +114,9 @@ const OpeningAnimation = ({ animateOut }) => {
 
           <div className="MUNNA cakeText">
             <h1 className="MUNNA cakeText-title">Happy 21st Birthday!</h1>
-            <div className="MUNNA cakeText-name">Yến Trương <div className="MUNNA cakeText-kitty-bow"></div></div>
-          </div>
+<div className="MUNNA cakeText-name" style={{ color: '#1e3a8a', fontFamily: '"Great Vibes", cursive', fontSize: '4rem', textShadow: '0 0 15px rgba(147, 197, 253, 0.8)', marginTop: '10px', letterSpacing: '2px' }}>
+    Yến Trương
+</div>          </div>
 
 
         </div>

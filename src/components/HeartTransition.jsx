@@ -27,7 +27,7 @@ const HeartTransition = ({ children }) => {
         <>
             {loading && (
                 <div className="route-loader">
-                    <main className='bg-[#8b0000] HeartTransisitonOpen'>
+                    <main className='bg-[#0f172a] HeartTransisitonOpen'>
                         <svg className="heart-loader" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 90 90" version="1.1">
                             <g className="heart-loader__group">
                                 <path className="heart-loader__square" strokeWidth="1" fill="none" d="M0,30 0,90 60,90 60,30z" />
