@@ -48,7 +48,7 @@ const SmallLetter = () => {
                 <div className="small-rajib-paper">
                     <div className="small-rajib-paper-content">
                         <div className="small-rajib-paper-close" onClick={handleCloseLetter}>x</div>
-                        <p style={{fontSize: '12px'}}>Dear Yến Trương,<br /><br />Chúc em một ngày sinh nhật rực rỡ và hạnh phúc nhất. Cảm ơn em vì đã xuất hiện và làm cho thế giới của anh trở nên tuyệt vời hơn mỗi ngày.<br /><br />Yêu em,<br />Ray Đặng</p>
+                        <p style={{fontSize: '12px'}}>Dear Vợ iu,<br /><br />Chúc em một ngày sinh nhật rực rỡ và hạnh phúc nhất. Cảm ơn em vì đã xuất hiện và làm cho thế giới của anh trở nên tuyệt vời hơn mỗi ngày.<br /><br />Yêu em,<br />Ray Đặng</p>
                     </div>
 
                     <svg className="rajib-diary-deco" viewBox="0 0 100 100" preserveAspectRatio="none">

@@ -32,9 +32,10 @@ const App = () => {
 
   useEffect(() => {
     const handlePageLoad = () => {
-      setTimeout(() => setAnimateOut(true), 8400);
-      setTimeout(() => setLoading(false), 9000);
-      setTimeout(() => setShowContent(true), 8600);
+      // Đã tăng thời gian chờ ở đây để ngắm pháo hoa và tên lâu hơn
+      setTimeout(() => setAnimateOut(true), 10000);   // 10 giây: Bắt đầu hiệu ứng mờ dần và trượt lên
+      setTimeout(() => setShowContent(true), 10200);  // 10.2 giây: Bắt đầu load ngầm trang chủ phía sau
+      setTimeout(() => setLoading(false), 11000);     // 11 giây: Xóa hoàn toàn màn hình bánh kem
     };
 
     if (document.readyState === "complete") {

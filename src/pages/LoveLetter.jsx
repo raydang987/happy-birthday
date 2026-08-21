@@ -1,15 +1,22 @@
 import React, { useRef, useState } from 'react'
-import yen from '../assets/yen.jpeg' // Import ảnh của bạn vào đây
+import anhdautien from '../assets/anhdautien.jpg'
+import ghephinhtraitim from '../assets/ghephinhtraitim.jpg'
+import nhannham from '../assets/nhannham.jpeg'
+import wedding from '../assets/wedding.jpg'
+import dilam from '../assets/dilam.jpeg'
+import cat from '../assets/cat.jpeg'
+import dienthoai from '../assets/dienthoai.jpeg'
+import kethon from '../assets/kethon.jpg'
 
 const lettersData = [
-    { id: 1, name: "Ray Đặng", msg: "Chúc vợ iu của anh có một ngày sinh nhật thật hạnh phúc và tràn ngập niềm vui 💙", img: yen },
-    { id: 2, name: "Ray Đặng", msg: "Chỉ một nụ cười hay một bức ảnh của em thôi cũng đủ làm bừng sáng cả ngày dài của anh.", img: yen },
-    { id: 3, name: "Ray Đặng", msg: "Dù là qua màn hình điện thoại, giọng nói và tiếng cười của em vẫn sưởi ấm trái tim anh như ánh nắng ban mai.", img: yen },
-    { id: 4, name: "Ray Đặng", msg: "Mỗi thông báo tin nhắn từ em đều giống như một nhịp đập thì thầm rằng: 'Có em ở đây, và em thương anh'.", img: yen },
-    { id: 5, name: "Ray Đặng", msg: "Tình yêu của chúng ta có thể truyền qua những đường truyền mạng, nhưng mỗi từ em gửi đều đi thẳng vào tim anh.", img: yen },
-    { id: 6, name: "Ray Đặng", msg: "Kể từ ngày mình quen nhau, trái tim anh đã biết chính xác nơi nó thuộc về — đó là ở bên cạnh em, mãi mãi.", img: yen },
-    { id: 7, name: "Ray Đặng", msg: "Mỗi khoảnh khắc ở bên em đều mang lại cảm giác bình yên, nhẹ nhàng. Em là khoảng trời dịu êm nhất của anh.", img: yen },
-    { id: 8, name: "Ray Đặng", msg: "Từ cuộc trò chuyện đầu tiên, em đã là ngọn lửa nhỏ thắp sáng thế giới của anh, biến mọi ngày bình thường thành phép màu.", img: yen },
+    { id: 1, name: "Ray Đặng", msg: <>Vợ chồng mình mỗi ngày yêu thêm từng chút nhé rồi sẽ đến ngày mình cầm được tờ giấy này thôi <br/> Chồng yêu em 🤍</>, img: kethon },
+    { id: 2, name: "Ray Đặng", msg: "Chắc chắn anh sẽ lấy Yến làm vợ👰🏻‍♀️", img: wedding },
+    { id: 3, name: "Ray Đặng", msg: "Dù chỉ thấy qua màn hình điện thoại, chỉ nghe được giọng nói và tiếng cười của em nhưng em vẫn là mục tiêu để anh cố gắng hơn từng ngày đó", img: dienthoai },
+    { id: 4, name: "Ray Đặng", msg: "Sóng có thể cuốn trôi dòng chữ trên cát, nhưng không gì có thể xóa nhòa vị trí của em trong tim anh kkkkk", img: cat },
+    { id: 5, name: "Ray Đặng", msg: "Lần đầu mang em theo đi làm", img: dilam },
+    { id: 6, name: "Ray Đặng", msg: "Còn đây là lần đầu ghép hình trái tim", img: ghephinhtraitim },
+    { id: 7, name: "Ray Đặng", msg: "Đây là bức ảnh đầu tiên của anh với em mặc dù nó không giống vợ lắm hihi 😁", img: anhdautien },
+    { id: 8, name: "Ray Đặng", msg: <>17/04/2026 Anh "bấm nhầm" rep vợ</>, img: nhannham },
 ];
 
 const LoveLetter = () => {
@@ -18,7 +25,6 @@ const LoveLetter = () => {
     const zIndexCounterRef = useRef(100);
     const lettersContainerRef = useRef(null);
     
-    // Logic kéo thả mượt mà, tự động đưa tấm đang bấm lên trên cùng
     const handleMouseDown = (e) => {
         const isTouch = e.type === "touchstart";
         const startEvent = isTouch ? e.touches[0] : e;
@@ -32,7 +38,6 @@ const LoveLetter = () => {
         const startLeft = rect.left + window.scrollX;
         const startTop = rect.top + window.scrollY;
 
-        // Đưa tấm ảnh này lên zIndex cao nhất ngay khi vừa click/chạm
         zIndexCounterRef.current += 1;
         letterEl.style.zIndex = zIndexCounterRef.current;
 
@@ -121,7 +126,7 @@ const LoveLetter = () => {
                                     backgroundColor: '#fdfbf7',
                                     boxShadow: '0 10px 30px rgba(0,0,0,0.4), inset 0 0 10px rgba(0,0,0,0.05)', 
                                     border: '1px solid #e2e8f0',
-                                    zIndex: 50 + index // Xếp lớp thứ tự ban đầu
+                                    zIndex: 50 + index
                                 }}
                                 onMouseDown={(e) => handleMouseDown(e, letter.id)}
                                 onTouchStart={handleMouseDown}
@@ -134,14 +139,13 @@ const LoveLetter = () => {
                                     Đóng
                                 </button>
                                 
-                                <div className="w-full h-[160px] md:h-[240px] overflow-hidden bg-gray-200 mb-4 md:mb-6 shadow-inner pointer-events-none relative border border-gray-300">
+                                {/* Đã sửa nền thành bg-white và đổi thành object-contain để hiện FULL 100% ảnh gốc */}
+                                <div className="w-full h-[160px] md:h-[240px] overflow-hidden bg-white mb-4 md:mb-6 shadow-inner pointer-events-none relative border border-gray-200">
                                     <img 
                                         src={letter.img} 
                                         alt="Kỷ niệm" 
-                                        className="w-full h-full object-cover" 
-                                        style={{ filter: 'sepia(30%) contrast(125%) saturate(80%) brightness(105%) hue-rotate(-5deg)' }}
+                                        className="w-full h-full object-contain" 
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-black/10 mix-blend-overlay"></div>
                                 </div>
 
                                 <p className="w-full text-center text-slate-800 font-sriracha text-[13px] md:text-[16px] leading-relaxed pointer-events-none opacity-90">

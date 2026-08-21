@@ -59,7 +59,7 @@ const BookCanvas = ({ active, setActive }) => {
                         <h3 className="card2-recipient">To My Love!</h3>
                         <div className="card2-message-text italic">
                             <article style={{ marginBottom: '8px' }}>Chúc mừng sinh nhật Vợ iu của anh 💙</article>
-                            <article style={{ marginBottom: '10px' }}>Từ khoảnh khắc chúng ta bước vào cuộc đời nhau, mọi thứ xung quanh anh đều trở nên tuyệt vời hơn. Em mang đến sự ấm áp, niềm vui và những tia sáng rực rỡ nhất cho những ngày tháng bình dị của anh.</article>
+                            <article style={{ marginBottom: '10px' }}>Từ khoảnh khắc em bước vào cuộc đời anh, mọi thứ xung quanh anh đều trở nên tuyệt vời hơn. Em mang đến sự ấm áp, niềm vui và những tia sáng rực rỡ nhất cho những ngày tháng bình dị của anh.</article>
                             <article style={{ marginBottom: '10px' }}>Nhân ngày sinh nhật của em, anh chỉ muốn nói rằng: Anh muốn được đồng hành cùng em trong mọi chương của cuộc đời, qua mọi giông bão hay nắng đẹp. Dù có chuyện gì xảy ra, anh vẫn sẽ luôn ở đây, chọn em, bảo vệ em và yêu em theo cách khiến em luôn cảm thấy bình yên nhất.</article>
                             <article style={{ marginBottom: '10px' }}>Tuổi mới chúc vợ của anh luôn xinh đẹp, rạng rỡ và mãi hạnh phúc bên anh. Cảm ơn em vì đã đến và trở thành ngoại lệ duy nhất của đời anh. Happy Birthday, my everything! 🎂</article>
                         </div>
