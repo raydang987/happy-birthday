@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react'
 import anhdautien from '../assets/anhdau.jpg'
-import ghephinhtraitim from '../assets/ghephinhtraitim.jpg'
+import ghephinhtraitim from '../assets/ghephinh.jpg'
 import nhannham from '../assets/nhannham.jpeg'
-import wedding from '../assets/wedding.jpg'
+import wedding from '../assets/wed.jpg'
 import dilam from '../assets/dilam.jpeg'
 import cat from '../assets/cat.jpeg'
 import dienthoai from '../assets/dienthoai.jpeg'
-import kethon from '../assets/kethon.jpg'
+import kethon from '../assets/ket.jpg'
 
 const lettersData = [
     { id: 1, name: "Ray Đặng", msg: <>Vợ chồng mình mỗi ngày yêu thêm từng chút nhé rồi sẽ đến ngày mình cầm được tờ giấy này thôi <br/> Chồng yêu em 🤍</>, img: kethon },
