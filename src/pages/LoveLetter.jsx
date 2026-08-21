@@ -47,6 +47,16 @@ const LoveLetter = () => {
         letterEl.style.top = `${startTop}px`;
         letterEl.style.margin = 0;
 
+        useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        document.body.style.touchAction = 'none';
+        
+        return () => {
+            document.body.style.overflow = 'auto';
+            document.body.style.touchAction = 'auto';
+        };
+    }, []);
+
         const moveAt = (posX, posY) => {
             letterEl.style.left = `${posX - offsetX}px`;
             letterEl.style.top = `${posY - offsetY}px`;
@@ -81,7 +91,7 @@ const LoveLetter = () => {
     };
 
     return (
-        <main className='munna bg-[#0f172a] h-screen w-full overflow-hidden relative flex justify-center items-center'>
+        <main className='munna bg-[#0f172a] h-screen w-full overflow-hidden relative flex justify-center items-center touch-none'>
             <section className="munna cssletter z-10 w-full h-full flex justify-center items-center relative">
                 <div className={`envelope ${openEnvelope ? "active" : ""}`}>
                     <button
