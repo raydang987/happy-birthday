@@ -113,8 +113,7 @@ const Home = () => {
                     </div>
 
                     <div className="right">
-                        <div className="box__account">
-                            <div className="image">
+<div className="box__account w-fit mx-auto flex flex-col items-center">                            <div className="image">
                                 <img src={yen} alt="" />
                             </div>
                             <div className="name">
