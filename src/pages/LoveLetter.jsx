@@ -24,6 +24,14 @@ const LoveLetter = () => {
     const [letters, setLetters] = useState(lettersData);
     const zIndexCounterRef = useRef(100);
     const lettersContainerRef = useRef(null);
+
+    // Chỉ khóa thanh cuộn tổng, không chặn click
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, []);
     
     const handleMouseDown = (e) => {
         const isTouch = e.type === "touchstart";
@@ -47,22 +55,16 @@ const LoveLetter = () => {
         letterEl.style.top = `${startTop}px`;
         letterEl.style.margin = 0;
 
-        useEffect(() => {
-        document.body.style.overflow = 'hidden';
-        document.body.style.touchAction = 'none';
-        
-        return () => {
-            document.body.style.overflow = 'auto';
-            document.body.style.touchAction = 'auto';
-        };
-    }, []);
-
         const moveAt = (posX, posY) => {
             letterEl.style.left = `${posX - offsetX}px`;
             letterEl.style.top = `${posY - offsetY}px`;
         };
 
         const onMouseMove = (moveEvent) => {
+            // ĐÂY LÀ ĐIỂM MẤU CHỐT: Chỉ chặn trình duyệt cuộn khi bạn đang kéo ảnh
+            if (isTouch && moveEvent.cancelable) {
+                moveEvent.preventDefault();
+            }
             const ev = isTouch ? moveEvent.touches[0] : moveEvent;
             moveAt(ev.clientX, ev.clientY);
         };
@@ -78,7 +80,8 @@ const LoveLetter = () => {
         };
 
         if (isTouch) {
-            document.addEventListener("touchmove", onMouseMove);
+            // Thêm { passive: false } để lệnh preventDefault() ở trên có tác dụng
+            document.addEventListener("touchmove", onMouseMove, { passive: false });
             document.addEventListener("touchend", onMouseUp);
         } else {
             document.addEventListener("mousemove", onMouseMove);
@@ -91,7 +94,7 @@ const LoveLetter = () => {
     };
 
     return (
-        <main className='munna bg-[#0f172a] h-screen w-full overflow-hidden relative flex justify-center items-center touch-none'>
+        <main className='munna bg-[#0f172a] h-screen w-full overflow-hidden relative flex justify-center items-center'>
             <section className="munna cssletter z-10 w-full h-full flex justify-center items-center relative">
                 <div className={`envelope ${openEnvelope ? "active" : ""}`}>
                     <button
@@ -149,7 +152,6 @@ const LoveLetter = () => {
                                     Đóng
                                 </button>
                                 
-                                {/* Đã sửa nền thành bg-white và đổi thành object-contain để hiện FULL 100% ảnh gốc */}
                                 <div className="w-full h-[160px] md:h-[240px] overflow-hidden bg-white mb-4 md:mb-6 shadow-inner pointer-events-none relative border border-gray-200">
                                     <img 
                                         src={letter.img} 
@@ -158,7 +160,7 @@ const LoveLetter = () => {
                                     />
                                 </div>
 
-                                <p className="w-full text-center text-slate-800 font-sriracha text-[13px] md:text-[16px] leading-relaxed pointer-events-none opacity-90">
+                                <p className="w-full text-center text-slate-800 font-sriracha text-[13px] md:text-[16px] leading-relaxed pointer-events-none opacity-90 whitespace-pre-line">
                                     {letter.msg}
                                 </p>
                             </blockquote>
@@ -195,4 +197,4 @@ const LoveLetter = () => {
     )
 }
 
-export default LoveLetter
+export default LoveLetter;
