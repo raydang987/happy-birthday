@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import anhdautien from '../assets/anhdautien.jpg'
+import anhdautien from '../assets/anhdau.jpg'
 import ghephinhtraitim from '../assets/ghephinhtraitim.jpg'
 import nhannham from '../assets/nhannham.jpeg'
 import wedding from '../assets/wedding.jpg'
