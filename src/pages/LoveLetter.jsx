@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import anhdautien from '../assets/anhdau.jpg'
 import ghephinhtraitim from '../assets/ghephinh.jpg'
 import nhannham from '../assets/nhannham.jpeg'
