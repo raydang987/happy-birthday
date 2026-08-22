@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './App.css'
 import './LoveLetter.css'
 import './BookCanvas.css'
@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import LoveLetter from './pages/LoveLetter'
 import Test from './pages/Test'
 import OpeningAnimation from './components/OpeningAnimation'
+import nhacNen from './assets/nhac.mp3' 
 
 const App = () => {
 
@@ -24,18 +25,16 @@ const App = () => {
     </Route>
   ))
 
-
   // ------------------Cake loader 
   const [loading, setLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
-  const [animateOut, setAnimateOut] = useState(false); // New state for animation
+  const [animateOut, setAnimateOut] = useState(false); 
 
   useEffect(() => {
     const handlePageLoad = () => {
-      // Đã tăng thời gian chờ ở đây để ngắm pháo hoa và tên lâu hơn
-      setTimeout(() => setAnimateOut(true), 10000);   // 10 giây: Bắt đầu hiệu ứng mờ dần và trượt lên
-      setTimeout(() => setShowContent(true), 10200);  // 10.2 giây: Bắt đầu load ngầm trang chủ phía sau
-      setTimeout(() => setLoading(false), 11000);     // 11 giây: Xóa hoàn toàn màn hình bánh kem
+      setTimeout(() => setAnimateOut(true), 10000);   
+      setTimeout(() => setShowContent(true), 10200);  
+      setTimeout(() => setLoading(false), 11000);     
     };
 
     if (document.readyState === "complete") {
@@ -47,8 +46,62 @@ const App = () => {
     return () => window.removeEventListener("load", handlePageLoad);
   }, []);
 
+  // ------------------ Trình phát nhạc nền ------------------
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
+  const hasInteracted = useRef(false); // Biến để nhớ xem người dùng đã click lần nào chưa
+
+  // Tính năng: Click bất kỳ đâu trên màn hình lần đầu tiên sẽ phát nhạc
+  useEffect(() => {
+    const handleFirstClick = () => {
+      if (!hasInteracted.current && audioRef.current) {
+        audioRef.current.play()
+          .then(() => {
+            setIsPlaying(true);
+            hasInteracted.current = true; // Đánh dấu là đã tương tác
+            
+            // Xóa bộ lắng nghe sự kiện sau khi đã phát nhạc thành công
+            document.removeEventListener('click', handleFirstClick);
+            document.removeEventListener('touchstart', handleFirstClick);
+          })
+          .catch(err => console.log("Lỗi tự động phát nhạc:", err));
+      }
+    };
+
+    // Gắn bộ lắng nghe sự kiện click/chạm vào toàn bộ trang web
+    document.addEventListener('click', handleFirstClick);
+    document.addEventListener('touchstart', handleFirstClick);
+
+    // Dọn dẹp sự kiện khi thoát
+    return () => {
+      document.removeEventListener('click', handleFirstClick);
+      document.removeEventListener('touchstart', handleFirstClick);
+    };
+  }, []);
+
+  const toggleMusic = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play().catch(err => console.log("Lỗi phát nhạc:", err));
+    }
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <>
+      {/* Nút bật tắt nhạc trôi nổi góc trên bên phải */}
+      <button 
+        onClick={toggleMusic}
+        className="fixed top-4 right-4 z-[999] w-10 h-10 flex items-center justify-center bg-white/80 rounded-full shadow-lg border-2 border-[#60a5fa] cursor-pointer hover:scale-110 transition-transform"
+        title="Bật/Tắt nhạc"
+      >
+        {isPlaying ? '🎵' : '🔇'}
+      </button>
+
+      {/* Thẻ audio ẩn */}
+      <audio ref={audioRef} src={nhacNen} loop />
+
       {
         loading && <OpeningAnimation animateOut={animateOut}/>
       }
