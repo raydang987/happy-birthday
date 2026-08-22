@@ -93,7 +93,7 @@ const App = () => {
       {/* Nút bật tắt nhạc trôi nổi góc trên bên phải */}
       <button 
         onClick={toggleMusic}
-        className="fixed top-4 right-4 z-[999] w-10 h-10 flex items-center justify-center bg-white/80 rounded-full shadow-lg border-2 border-[#60a5fa] cursor-pointer hover:scale-110 transition-transform"
+        className="fixed top-4 left-4 z-[999] w-10 h-10 flex items-center justify-center bg-white/80 rounded-full shadow-lg border-2 border-[#60a5fa] cursor-pointer hover:scale-110 transition-transform"
         title="Bật/Tắt nhạc"
       >
         {isPlaying ? '🎵' : '🔇'}
