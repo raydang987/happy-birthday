@@ -32,9 +32,9 @@ const App = () => {
 
   useEffect(() => {
     const handlePageLoad = () => {
-      setTimeout(() => setAnimateOut(true), 10000);   
-      setTimeout(() => setShowContent(true), 10200);  
-      setTimeout(() => setLoading(false), 11000);     
+      setTimeout(() => setAnimateOut(true), 12000);
+      setTimeout(() => setShowContent(true), 12200);
+      setTimeout(() => setLoading(false), 13000);
     };
 
     if (document.readyState === "complete") {
